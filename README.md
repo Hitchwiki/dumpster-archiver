@@ -1,6 +1,6 @@
-To collect dumpster diving spots from https://www.dumpstermap.org/page/about and to upload them to https://huggingface.co/datasets/Hitchwiki/dumpster-diving-spots.
+# Dumpster-Archiver
 
-In Settings > Secrets provide .
+This container image collects dumpster diving spots from https://www.dumpstermap.org/page/about and to uploads them to https://huggingface.co/datasets/Hitchwiki/dumpster-diving-spots.
 
 # Azure
 

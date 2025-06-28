@@ -14,11 +14,13 @@ az acr create --name dumpstermap --resource-group dumpstermap --sku Basic
 
 az acr login --name dumpstermap  
 
-docker build -t dumpstermap-huggingface-uploader:v3 .  
+(docker build -t dumpstermap-huggingface-uploader:v3 .)
 
-docker tag dumpstermap-huggingface-uploader:v3 dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v3
+docker build -t dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v4 .
 
-docker push dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v3
+(docker tag dumpstermap-huggingface-uploader:v3 dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v3)
+
+docker push dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v4
 
 create an Azure Container App Jobs
 

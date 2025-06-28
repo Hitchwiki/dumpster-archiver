@@ -1,6 +1,6 @@
 # Dumpster-Archiver
 
-This container image collects dumpster diving spots from https://www.dumpstermap.org/page/about and to uploads them to https://huggingface.co/datasets/Hitchwiki/dumpster-diving-spots.
+This container image collects dumpster diving spots from https://www.dumpstermap.org/page/about and uploads them to https://huggingface.co/datasets/Hitchwiki/dumpster-diving-spots.
 
 # Deployment
 

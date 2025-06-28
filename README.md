@@ -18,6 +18,6 @@ docker tag dumpstermap-huggingface-uploader:v3 dumpstermap.azurecr.io/dumpsterma
 
 docker push dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v3
 
-create a Azure Container App Jobs
+create an Azure Container App Jobs
 
 - set env var HF_TOKEN with write permissions

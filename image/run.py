@@ -58,6 +58,16 @@ logging.info("Finished processing dumpsters")
 
 dumpsters_df.sort_values("dumpster_created", inplace=True, ascending=False)
 
+dumpsters_df = dumpsters_df[[
+    "Latitude",
+    "Longitude",
+    "dumpster_created",
+    "voting",
+    "comment",
+    "voting_created",
+    "name"
+]]
+
 dataset = Dataset.from_pandas(dumpsters_df)
 dataset_dict = DatasetDict({datetime.now().strftime("%Y.%m.%d"): dataset})
 dataset_dict.push_to_hub("Hitchwiki/dumpster-diving-spots")

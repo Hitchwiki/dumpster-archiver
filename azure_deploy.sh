@@ -23,6 +23,7 @@ az containerapp env create \
     --location germanywestcentral \
     --logs-workspace-id $WORKSPACE_ID \
     --logs-workspace-key $WORKSPACE_KEY
+    
 
 REGISTRY_PASSWORD=$(az acr credential show \
   --name crdumpster \

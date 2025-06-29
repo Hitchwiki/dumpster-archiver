@@ -6,22 +6,22 @@ This container image collects dumpster diving spots from https://www.dumpstermap
 
 Currently this archiver is deployed by @tillwenke on Azure like this:
 
-Get an Azure account with a Subscription and create the resource group `dumpstermap`. Then run the following from terminal:
+Get an Azure account with a Subscription. Then run the following from terminal:
 
-az login       
+# select the subscription
 
-az acr create --name dumpstermap --resource-group dumpstermap --sku Basic
+```
+chomd 777 azure.sh
+./azure_setup.sh
+```
 
-az acr login --name dumpstermap  
+create a scheduled Azure Container App Job to run on the first of every month:
 
-(docker build -t dumpstermap-huggingface-uploader:v3 .)
 
-docker build -t dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v4 .
+In `.env` set the variables:
+- HF_TOKEN with write permissions in huggingface
 
-(docker tag dumpstermap-huggingface-uploader:v3 dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v3)
-
-docker push dumpstermap.azurecr.io/dumpstermap-huggingface-uploader:v4
-
-create an Azure Container App Jobs
-
-- set env var HF_TOKEN with write permissions
+```
+chomd 777 azure.sh
+./azure_deploy.sh
+```

@@ -4,24 +4,17 @@ This container image collects dumpster diving spots from https://www.dumpstermap
 
 # Deployment
 
-Currently this archiver is deployed by @tillwenke on Azure like this:
+Runs monthly via anacron on @tillwenke's machine.
 
-Get an Azure account with a Subscription. Then run the following from terminal:
+## Setup
 
-# select the subscription
+1. Create a `.env` file with `HF_TOKEN` (Hugging Face write token)
 
-```
-chomd 777 azure.sh
-./azure_setup.sh
-```
+2. Ensure Docker is installed and the user running anacron can access it.
 
-create a scheduled Azure Container App Job to run on the first of every month:
+3. Add to `/etc/anacrontab`:
+   ```bash
+   sudo sh -c 'echo "@monthly 15    dumpster-archiver    /home/till/recurring_tasks/dumpster-archiver/run.sh" >> /etc/anacrontab'
+   ```
 
-
-In `.env` set the variables:
-- HF_TOKEN with write permissions in huggingface
-
-```
-chomd 777 azure.sh
-./azure_deploy.sh
-```
+Logs are written to `run.log` in this directory.
